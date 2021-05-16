@@ -1,3 +1,53 @@
-<app-header></app-header>
-<app-nav></app-nav>
-<app-footer></app-footer>
+<ng-container>
+    <mat-toolbar class="header">
+        <div>
+            <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+        </div>
+
+        <span>
+            <img src="assets/img/livro.png" alt="">
+        </span>
+        <span>
+            <h1>BOOKSTORE APPLICATION</h1>
+        </span>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-container" style="height: 85vh;">
+        <mat-sidenav #sidenav mode="side" opened class="example-sidenav" [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top" [fixedBottomGap]="options.value.bottom">
+
+            <mat-nav-list>
+                <a routerLink="" mat-list-item>
+                    <i class="material-icons">home</i> Home
+                </a>
+                <a routerLink="/categorias" mat-list-item>
+                    <i class="material-icons">menu_book</i> Categorias
+                </a>
+            </mat-nav-list>
+
+
+            <mat-sidenav-content>
+
+            </mat-sidenav-content>
+
+
+
+
+        </mat-sidenav>
+
+        <mat-sidenav-content [formGroup]="options">
+
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <mat-toolbar class="footer">
+        <span>
+            Desenvolvido por Murillo Mtz
+        </span>
+    </mat-toolbar>
+</ng-container>
+
+
+<!-- Copyright 2021 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
